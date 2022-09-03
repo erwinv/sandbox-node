@@ -1,5 +1,5 @@
 import { main } from './main'
 
 test('main', async () => {
-  await main()
+  await expect(main()).resolves.toBe(0)
 })

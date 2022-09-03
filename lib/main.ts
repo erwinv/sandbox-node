@@ -27,6 +27,8 @@ export async function main() {
       .offset(0)
       .limit(10)
     console.table(pets)
+
+    return 0
   } finally {
     await teardown()
   }
