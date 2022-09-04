@@ -1,11 +1,17 @@
 import 'dotenv/config'
 import { range } from './util'
-import { mysql, pg, sqlite, teardown } from './db'
+import { redis, mysql, pg, sqlite, teardown, redisKeys } from './db'
 
 export async function main() {
   try {
     for (const i of range(0, 3)) {
       console.info('hello', i)
+    }
+
+    for await (const keys of redisKeys(redis, '*', 100)) {
+      for (const key of keys) {
+        console.info(key)
+      }
     }
 
     const tracks = await sqlite
