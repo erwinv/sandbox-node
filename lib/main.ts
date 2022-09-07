@@ -1,6 +1,7 @@
 import 'dotenv/config'
+import _ from 'lodash'
 import { range } from './util'
-import { redis, mysql, pg, sqlite, teardown, redisKeys } from './db'
+import { redis, redisKeys, mysql, pg, sqlite, teardown } from './db'
 
 export async function main() {
   try {
